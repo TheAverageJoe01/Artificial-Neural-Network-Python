@@ -19,11 +19,11 @@ class node():
             for j in range(0,len(self.weights)):
                 self.net_sum += self.weights[i] * inputs[i]
                 
-def forwardstep(self,nodelist, data):
-    for i in range(0,len(nodelist)):
-        nodelist[i].net(data[i])
-        nodelist[i].sigmoid()
-    print(nodelist[i].outputs)
+    def forwardstep(self,nodelist, data):
+        for i in range(0,len(nodelist)):
+            nodelist[i].net(data[i])
+            nodelist[i].sigmoid()
+        print(nodelist[i].outputs)
             
             
         
