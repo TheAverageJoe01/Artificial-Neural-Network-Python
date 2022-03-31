@@ -21,10 +21,12 @@ class node():
                 
     def forwardstep(nodelist, data):
         for i in range(0,len(nodelist)):
-            nodelist[i].net(data[i])
-            nodelist[i].sigmoid()
-            if nodelist[i] == nodelist[4] or nodelist[i] == nodelist[5]:
+            if nodelist[i] == nodelist[3] or nodelist[i] == nodelist[4]:
+                nodelist.net(data[i])
                 print(nodelist[i].outputs)
+            else:
+                nodelist[i].net(data[i])
+                nodelist[i].sigmoid()
             
             
     def backwardstep(nodelist, data):
