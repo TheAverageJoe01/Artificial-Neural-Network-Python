@@ -19,15 +19,19 @@ class node():
             for j in range(0,len(self.weights)):
                 self.net_sum += self.weights[i] * inputs[i]
                 
-    def forwardstep(self,nodelist, data):
+    def forwardstep(nodelist, data):
         for i in range(0,len(nodelist)):
             nodelist[i].net(data[i])
             nodelist[i].sigmoid()
-        print(nodelist[i].outputs)
+            if nodelist[i] == nodelist[4] or nodelist[i] == nodelist[5]:
+                print(nodelist[i].outputs)
             
             
+    def backwardstep(nodelist, data):
+        pass
         
         
+             
 
 nodelist = []
 node1 = node([0.9,0.74,0.8,0.35],[],0,0,0)      
@@ -50,4 +54,4 @@ data = [[1,0.50,1.00,0.75],
     [1,0.01,0.02,0.05]]
 
 
-forwardstep()
+node.forwardstep(nodelist, data)
