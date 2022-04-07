@@ -34,14 +34,12 @@ class Network():
             fwoutput.append(node.sigmoid())
         fwoutput = [1] + fwoutput
         for node in self.output:
-            node.input = fwoutput
-            print(node.input)
+            node.inputs = fwoutput
         fwoutput = []
         for node in self.output:
-            print(f"{node.nodeNum} | {node.net()}")
             fwoutput.append(node.net())
-        print(fwoutput)
-            
+            print(f"{node.nodeNum} --> {node.net()}")
+        
     def errorFunc(self):
         target = [1,0]
         for node in self.output:
@@ -83,3 +81,4 @@ outputLayer = [node7,node8]
     
 n = Network(data[0],hiddenLayer,outputLayer)
 n.forwardstep()
+n.errorFunc()
