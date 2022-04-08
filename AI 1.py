@@ -32,20 +32,22 @@ class Network():
         fwoutput = []
         for node in self.hidden:
             fwoutput.append(node.sigmoid())
+            node.output = node.sigmoid()
         fwoutput = [1] + fwoutput
         for node in self.output:
             node.inputs = fwoutput
         fwoutput = []
         for node in self.output:
             fwoutput.append(node.net())
-            print(f"{node.nodeNum} --> {node.net()}")
+            node.output = node.net()
+            #print(f"{node.nodeNum} --> {node.net()}")
+        #for node in self.hidden + self.output:
+            #print(node.nodeNum,node.output)
         
-    def errorFunc(self):
-        target = [1,0]
-        for node in self.output:
-            n7_error = target[0] - self.output[0]
-        print (n7_error)
-             
+    def errorcalc(self):
+        pass
+    
+      
     def backwardstep(nodelist):
         pass
         
