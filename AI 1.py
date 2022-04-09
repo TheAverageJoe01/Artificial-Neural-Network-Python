@@ -40,7 +40,7 @@ class Network():
         for node in self.output:
             fwoutput.append(node.net())
             node.output = node.net()
-            #print(f"{node.nodeNum} --> {node.net()}")
+            print(f"{node.nodeNum} --> {node.net()}")
         #for node in self.hidden + self.output:
             #print(node.nodeNum,node.output)
         
@@ -83,4 +83,4 @@ outputLayer = [node7,node8]
     
 n = Network(data[0],hiddenLayer,outputLayer)
 n.forwardstep()
-n.errorFunc()
+#n.errorFunc()
