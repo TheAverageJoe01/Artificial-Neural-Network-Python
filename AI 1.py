@@ -65,7 +65,14 @@ class Network():
                node.weights[i] += 0.1 * node.errorRate * node.inputs[i] 
         for node in self.hidden + self.output:
             print(node.nodeNum,"--->",node.weights)
-            
+
+    def squared_error(self):
+        for node in self.output:
+            squared_error = (node.errorRate**2) 
+
+    def graph(self):
+        pass
+
 
 nodelist = []
 node4 = node(4,[0.9,0.74,0.8,0.35],[],[],[],0)      
