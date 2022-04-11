@@ -40,15 +40,20 @@ class Network():
         for node in self.output:
             fwoutput.append(node.net())
             node.output = node.net()
-            print(f"{node.nodeNum} --> {node.net()}")
+            #print(f"{node.nodeNum} --> {node.net()}")
         #for node in self.hidden + self.output:
             #print(node.nodeNum,node.output)
         
     def errorcalc(self):
-        pass
+        target = [1,0]
+        for node in self.output:
+            for i in range(0(node.output)):
+                n7_error = target[0] - node.output[0]
+            print (n7_error)
+
     
       
-    def backwardstep(nodelist):
+    def backwardstep(self):
         pass
         
         
@@ -83,4 +88,4 @@ outputLayer = [node7,node8]
     
 n = Network(data[0],hiddenLayer,outputLayer)
 n.forwardstep()
-#n.errorFunc()
+n.errorcalc()
