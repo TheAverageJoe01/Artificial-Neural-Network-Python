@@ -74,11 +74,20 @@ class Network():
 
         return sumn * 0.5
     
+    #probability distribution
     def softmax(self):
-        Softmax = []
+        den = 0
+        probability_distribution = []
         print("Outputs:")
         for node in self.output:
             print(node.nodeNum,"--->",node.outputs)
+            for node in self.output:
+                den += math.exp(node.outputs)
+            for node in self.output:
+                sum1 = math.exp(node.outputs) / den
+            probability_distribution.append(sum1)
+        print(probability_distribution)
+                
 
 
             
