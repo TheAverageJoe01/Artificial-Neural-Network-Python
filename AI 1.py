@@ -119,14 +119,14 @@ n = Network(hiddenLayer,outputLayer)
 
 while True:
     try:
-        p = int(input("Number of Epochs: "))
+        User_input = int(input("Number of Epochs: "))
         break
     except ValueError:
         print("invalid input")
         
 Epoch = []
 RealError = []
-for epoch in range(p):
+for epoch in range(User_input):
     SQ_error = []
     Epoch.append(epoch+1)
     print("\n","epoch ------> ", epoch + 1 )
