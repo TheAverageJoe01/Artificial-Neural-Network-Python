@@ -33,6 +33,7 @@ class Network():
     def forwardstep(self):
         fwoutput = []
         for node in self.hidden:
+            print(node.inputs)
             fwoutput.append(node.sigmoid())
             node.outputs = node.sigmoid()
         fwoutput = [1] + fwoutput
@@ -79,14 +80,15 @@ class Network():
         den = 0
         probability_distribution = []
         print("Outputs:")
-        for node in self.output:
+        for node in self.hidden + self.output:
             print(node.nodeNum,"--->",node.outputs)
+        for node in self.output:
             for node in self.output:
                 den += math.exp(node.outputs)
             for node in self.output:
                 sum1 = math.exp(node.outputs) / den
             probability_distribution.append(sum1)
-        print("Softmax:", probability_distribution)
+        print("Softmax: \n",probability_distribution)
                 
 
 
@@ -164,14 +166,13 @@ for epoch in range(User_input):
         avg_error += error
     avg_error = avg_error / 6 
     RealError.append(avg_error)
-
-
 while True:
     try:
         input1 = input("Would you like to test your data? Y/N:").lower()
         if input1 == "y":
-            node.inputs.clear()
-            node.inputs = [1,0.3,0.7,0.9]
+            for node in nodelist:
+                node.inputs.clear()
+                node.inputs = [1,0.3,0.7,0.9]
             n.forwardstep()
             n.softmax()
             break
