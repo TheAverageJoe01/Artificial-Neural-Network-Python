@@ -73,6 +73,15 @@ class Network():
             sumn += (node.errorRate ** 2)
 
         return sumn * 0.5
+    
+    def softmax(self):
+        Softmax = []
+        print("Outputs:")
+        for node in self.output:
+            print(node.nodeNum,"--->",node.outputs)
+
+
+            
         
 def graph(Epoch , SQ_error):
     x = Epoch
@@ -146,6 +155,23 @@ for epoch in range(User_input):
         avg_error += error
     avg_error = avg_error / 6 
     RealError.append(avg_error)
+
+
+while True:
+    try:
+        input1 = input("Would you like to test your data? Y/N:").lower()
+        if input1 == "y":
+            node.inputs.clear()
+            node.inputs = [1,0.3,0.7,0.9]
+            n.forwardstep()
+            n.softmax()
+            break
+        elif input1 == "n":
+            pass
+            break
+    except ValueError:
+        print("invalid input")
+
 
 
 graph(Epoch, RealError)
