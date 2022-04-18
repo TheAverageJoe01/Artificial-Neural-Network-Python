@@ -33,7 +33,6 @@ class Network():
     def forwardstep(self):
         fwoutput = []
         for node in self.hidden:
-            print(node.inputs)
             fwoutput.append(node.sigmoid())
             node.outputs = node.sigmoid()
         fwoutput = [1] + fwoutput
@@ -77,7 +76,7 @@ class Network():
     
     #probability distribution
     def softmax(self):
-        den = 0
+        den = 0.0
         probability_distribution = []
         print("Outputs:")
         for node in self.hidden + self.output:
@@ -86,7 +85,7 @@ class Network():
             for node in self.output:
                 den += math.exp(node.outputs)
             for node in self.output:
-                sum1 = math.exp(node.outputs) / den
+                sum1 = (math.exp(node.outputs) / den)
             probability_distribution.append(sum1)
         print("Softmax: \n",probability_distribution)
                 
