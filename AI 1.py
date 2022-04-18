@@ -102,7 +102,7 @@ def graph(Epoch , SQ_error):
     # naming the y axis
     plt.ylabel('y - Squared error')
     # giving a title to my graph
-    plt.title('squared error graph')
+    plt.title('Squared Error graph')
     plt.show()
         
 
