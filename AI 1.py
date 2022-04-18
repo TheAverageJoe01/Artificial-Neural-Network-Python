@@ -115,10 +115,18 @@ outputLayer = [node7,node8]
 
 #MAIN CODE
 n = Network(hiddenLayer,outputLayer)
-Epoch = []
 
+
+while True:
+    try:
+        p = int(input("Number of Epochs: "))
+        break
+    except ValueError:
+        print("invalid input")
+        
+Epoch = []
 RealError = []
-for epoch in range(500):
+for epoch in range(p):
     SQ_error = []
     Epoch.append(epoch+1)
     print("\n","epoch ------> ", epoch + 1 )
