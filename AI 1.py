@@ -44,6 +44,7 @@ class Network():
             node.outputs = node.net()
         #for node in self.hidden + self.output:
             #print(node.nodeNum,"--->",node.outputs)
+
     
     def error(self,outputindex):
         error = []
@@ -82,13 +83,12 @@ class Network():
         for node in self.hidden + self.output:
             print(node.nodeNum,"--->",node.outputs)
         for node in self.output:
-            for node in self.output:
-                den += math.exp(node.outputs)
-            for node in self.output:
-                sum1 = (math.exp(node.outputs) / den)
-            probability_distribution.append(sum1)
+            den += math.exp(node.outputs)
+        for node in self.output:
+            Numerator = (math.exp(node.outputs) / den)
+            probability_distribution.append(Numerator)
         print("Softmax: \n",probability_distribution)
-                
+
 
 
             
@@ -145,6 +145,7 @@ while True:
         
 Epoch = []
 RealError = []
+TableWeights = []
 for epoch in range(User_input):
     SQ_error = []
     Epoch.append(epoch+1)
