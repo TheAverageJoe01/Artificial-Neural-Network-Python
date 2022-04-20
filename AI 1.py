@@ -47,11 +47,11 @@ class Network():
     
     def error(self,outputindex):
         error = []
-        for node in self.output: 
+        for node in self.output: #output layer errors
             node.errorRate = node.expectedOutput[outputindex] - node.outputs
             error.append(node.errorRate)
             #print(node.nodeNum,"--->",node.errorRate)
-        for node in self.hidden:
+        for node in self.hidden:#hidden layer errors 
             W = []
             for outputnode in self.output:
                 W.append(outputnode.weights[self.hidden.index(node) + 1])
@@ -102,7 +102,7 @@ def graph(Epoch , SQ_error):
     # naming the y axis
     plt.ylabel('y - Squared error')
     # giving a title to my graph
-    plt.title('Squared Error graph')
+    plt.title('Learning Curve')
     plt.show()
         
 
@@ -134,7 +134,7 @@ outputLayer = [node7,node8]
 #MAIN CODE
 n = Network(hiddenLayer,outputLayer)
 
-
+#input value for number of epochs 
 while True:
     try:
         User_input = int(input("Number of Epochs: "))
@@ -155,7 +155,7 @@ for epoch in range(User_input):
         for node in nodelist:
             node.inputs.clear()
             for i in j:
-                node.inputs.append(i)
+                node.inputs.append(i)#adds the new line of data 
         n.forwardstep()
         n.error(index)
         n.weightUpdate()
@@ -163,11 +163,13 @@ for epoch in range(User_input):
     avg_error = 0
     for error in SQ_error:
         avg_error += error
-    avg_error = avg_error / 6 
+    #avg_error = avg_error / 6 
     RealError.append(avg_error)
+    
+# selecting whether they want to test the data 
 while True:
     try:
-        input1 = input("Would you like to test your data? Y/N:").lower()
+        input1 = input("Would you like to test your data? Y/N:").lower()#converts input into lower case 
         if input1 == "y":
             for node in nodelist:
                 node.inputs.clear()
